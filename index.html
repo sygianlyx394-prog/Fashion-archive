@@ -3,474 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vestige Archive | Moda Disiplini ve Kültürel Çalışmalar</title>
+    <title>Vestige Archive | Scholarly Fashion Archive</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --burgundy: #800000;
-            --cream: #F5F3EE;
-            --black: #111111;
-            --text-gray: #4A4A4A;
-            --border-color: #E0DCD5;
-            --white: #FFFFFF;
+            --burgundy: #741113;
+            --cream: #F2EFE9; /* Daha kağıdımsı bir ton */
+            --black: #1a1a1a;
+            --text-gray: #333333;
+            --border-color: #D6D2C9;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--cream);
+            /* Kağıt dokusu efekti */
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
             font-family: 'Montserrat', sans-serif;
             color: var(--black);
-            line-height: 1.6;
         }
 
-        /* Üst Bilgi Barı */
-       .top-bar {
+        /* Üst Bilgi */
+        .top-bar {
             display: flex;
             justify-content: space-between;
-            padding: 10px 40px;
+            padding: 12px 40px;
             border-bottom: 1px solid var(--border-color);
-            font-size: 11px;
+            font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 600;
         }
 
-        /* Ana Header */
         header {
             text-align: center;
-            padding: 40px 0 20px 0;
+            padding: 60px 40px 30px;
             position: relative;
         }
 
-       .header-utility {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 40px;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 1.5px;
-        }
-
-       .header-utility.left-side,.header-utility.right-side {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-       .header-utility span {
-            margin: 0 10px;
-        }
-
-       .logo {
+        .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 82px;
+            font-size: 92px;
             color: var(--burgundy);
-            letter-spacing: 4px;
+            letter-spacing: 8px;
             font-weight: 400;
-            margin-bottom: 10px;
-        }
-
-       .subtitle {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 13px;
-            font-weight: 400;
-            border-top: 1px solid var(--border-color);
-            display: inline-block;
-            padding-top: 10px;
-            margin-top: 10px;
-        }
-
-        /* Navigasyon */
-        nav {
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            margin: 20px 40px;
-            padding: 15px 0;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin: 0 25px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--black);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--burgundy);
-        }
-
-        /* Hero Bölümü */
-       .hero {
-            display: flex;
-            padding: 40px 80px;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-       .hero-text {
-            flex: 1;
-            padding-right: 60px;
-        }
-
-       .hero-label {
-            color: var(--burgundy);
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-       .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 72px;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-       .hero-description {
-            font-size: 18px;
-            color: var(--text-gray);
-            margin-bottom: 40px;
-            max-width: 450px;
-        }
-
-       .btn-explore {
-            background-color: var(--burgundy);
-            color: var(--white);
-            padding: 15px 35px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            font-size: 13px;
-            border: none;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-       .btn-explore:hover {
-            opacity: 0.9;
-        }
-
-       .hero-visuals {
-            flex: 2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-       .visual-img {
-            max-height: 500px;
-            filter: sepia(0.2) contrast(1.1);
-        }
-
-       .society-diagram {
-            position: absolute;
-            top: 10%;
-            left: 45%;
-            width: 250px;
-            text-align: center;
-        }
-
-        /* Featured Articles Grid */
-       .featured-section {
-            padding: 60px 40px;
-            background-color: var(--white);
-        }
-
-       .section-top {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-       .section-top h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--burgundy);
-            font-size: 24px;
-            text-transform: uppercase;
-        }
-
-       .view-all {
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 1px;
-            font-weight: 600;
-            text-decoration: none;
-            color: var(--black);
-        }
-
-       .article-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-       .article-card {
-            border: 1px solid #F0F0F0;
-            padding: 25px;
-            background-color: var(--white);
-        }
-
-       .card-category {
-            color: var(--burgundy);
-            text-transform: uppercase;
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-       .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-       .card-excerpt {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-bottom: 25px;
-        }
-
-       .read-more {
-            text-transform: uppercase;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--black);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        /* Arşiv Göz Atma ve Kırmızı Bloklar */
-       .archive-footer-layout {
-            display: grid;
-            grid-template-columns: 350px 1fr 1fr;
-            min-height: 400px;
-        }
-
-       .browse-sidebar {
-            background-color: var(--burgundy);
-            color: var(--white);
-            padding: 50px 40px;
-        }
-
-       .browse-sidebar h3 {
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-        }
-
-       .archive-menu {
-            list-style: none;
-        }
-
-       .archive-menu li {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-            cursor: pointer;
-        }
-
-       .archive-menu li:hover {
-            opacity: 0.8;
-        }
-
-       .quote-block {
-            background-color: var(--black);
-            color: var(--white);
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-        }
-
-       .quote-icon {
-            font-size: 40px;
-            color: var(--burgundy);
-            margin-bottom: 20px;
-        }
-
-       .quote-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            margin-bottom: 25px;
-            line-height: 1.4;
-        }
-
-       .quote-author {
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 2px;
-            color: var(--gray-mid);
-        }
-
-       .about-project {
-            background-color: var(--burgundy);
-            color: var(--white);
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-       .about-title {
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-       .about-text {
-            font-size: 15px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-       .btn-learn {
-            border: 1px solid var(--white);
-            background: transparent;
-            color: var(--white);
-            padding: 12px 25px;
-            text-transform: uppercase;
-            font-size: 12px;
-            cursor: pointer;
-            width: fit-content;
-        }
-
-        /* Alt Bilgi - Footer */
-        footer {
-            background-color: var(--black);
-            color: var(--white);
-            padding: 80px 40px 20px 40px;
-        }
-
-       .footer-main {
-            display: grid;
-            grid-template-columns: 200px 1fr 1fr 1fr 350px;
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-       .footer-va {
-            font-family: 'Playfair Display', serif;
-            font-size: 80px;
             line-height: 1;
         }
 
-       .footer-col h4 {
+        /* Logo altındaki süsleme */
+        .flourish {
+            font-size: 24px;
+            color: var(--burgundy);
+            margin: 10px 0;
+            opacity: 0.6;
+        }
+
+        .subtitle {
             text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-            color: #888;
+            letter-spacing: 4px;
+            font-size: 12px;
+            padding-top: 15px;
         }
 
-       .footer-col ul {
-            list-style: none;
+        nav {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin: 0 40px;
+            padding: 12px 0;
         }
 
-       .footer-col ul li {
-            margin-bottom: 12px;
-            font-size: 13px;
-        }
-
-       .footer-col ul li a {
-            color: var(--white);
+        nav ul { display: flex; justify-content: center; list-style: none; }
+        nav ul li { margin: 0 20px; }
+        nav ul li a {
             text-decoration: none;
+            color: var(--black);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        /* Hero Alanı Düzenlemesi */
+        .hero {
+            position: relative;
+            height: 650px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 10;
+            width: 40%;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 84px;
+            font-style: italic;
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        /* Arka plandaki illüstrasyonlar */
+        .hero-illustrations {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Görselleri yerleştirmek için placeholder yerine gerçek stil */
+        .illu-img {
+            position: absolute;
+            opacity: 0.8;
+            filter: grayscale(1) contrast(1.1);
+            mix-blend-mode: multiply; /* Kağıtla kaynaşmasını sağlar */
+        }
+
+        .illu-1 { height: 90%; left: 10%; bottom: 0; } /* Roman */
+        .illu-2 { height: 40%; left: 35%; top: 50%; }   /* Corset */
+        .illu-3 { height: 75%; right: 10%; bottom: 0; }  /* Victorian */
+        .illu-4 { height: 50%; right: 0; bottom: 0; }    /* Gentleman */
+
+        /* Society Diyagramı */
+        .society-diag {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
             opacity: 0.7;
         }
 
-       .newsletter-col h4 {
-            margin-bottom: 20px;
-        }
-
-       .newsletter-form {
-            display: flex;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-        }
-
-       .newsletter-form input {
-            background: transparent;
-            border: none;
-            color: var(--white);
-            flex: 1;
-            padding: 10px 0;
-            outline: none;
-        }
-
-       .btn-subscribe {
+        .btn-explore {
             background-color: var(--burgundy);
-            color: var(--white);
+            color: white;
+            padding: 18px 40px;
             border: none;
-            padding: 10px 20px;
             text-transform: uppercase;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-       .copyright {
-            text-align: center;
-            font-size: 11px;
             letter-spacing: 2px;
-            color: #666;
-            text-transform: uppercase;
-            border-top: 1px solid #222;
-            padding-top: 30px;
+            cursor: pointer;
+            font-weight: 600;
         }
 
-        /* İllüstrasyon Yerleşimi */
-       .illustration-container {
-            display: flex;
+        /* Makale Bölümü */
+        .featured-section { background: white; padding: 80px 40px; }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            align-items: flex-end;
         }
 
-       .diag-item {
-            border: 1px solid #333;
-            padding: 10px;
-            border-radius: 50%;
-            font-size: 11px;
+        .article-card {
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-color: #fff;
+        }
+
+        /* Kart içi illüstrasyon */
+        .card-illu {
             position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 250px;
+            opacity: 0.15;
+            filter: grayscale(1);
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        /* Alt Bloklar */
+        .archive-footer-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+        }
+
+        .sidebar-red { background: var(--burgundy); color: white; padding: 60px 40px; }
+        .quote-black { background: #111; color: white; padding: 80px 60px; text-align: center; }
+        .about-red { background: var(--burgundy); color: white; padding: 60px 40px; }
+
+        .archive-menu li {
+            list-style: none;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+        }
+        
+        .archive-menu li::before {
+            content: '🏛️'; /* Veya font-awesome iconu */
+            margin-right: 15px;
+            font-size: 14px;
         }
 
     </style>
@@ -483,17 +223,14 @@
     </div>
 
     <header>
-        <div class="header-utility">
-            <div class="left-side"><span>🔍</span> Search</div>
-            <div class="right-side"><span>📚</span> Library</div>
-        </div>
-        <h1 class="logo">VESTIGE ARCHIVE</h1>
+        <h1 class="logo">VESTIS ARCHIVE</h1>
+        <div class="flourish">❦</div>
         <div class="subtitle">A Scholarly Archive of Fashion, Dress, and Cultural Study</div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#">Archive</a></li>
             <li><a href="#">Articles</a></li>
             <li><a href="#">Timeline</a></li>
@@ -505,123 +242,48 @@
 
     <main>
         <section class="hero">
-            <div class="hero-text">
-                <span class="hero-label">Fashion as a Discipline</span>
-                <h2 class="hero-title">Dress is Knowledge.</h2>
-                <p class="hero-description">An intellectual history of fashion as a social practice, material culture, and system of meaning.</p>
-                <button class="btn-explore">Explore the Archive</button>
+            <div class="society-diag">
+                <svg viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="30" fill="none" stroke="#333" stroke-width="0.5" />
+                    <text x="100" y="105" text-anchor="middle" font-size="8" font-family="Montserrat">DRESS</text>
+                    <g fill="none" stroke="#333" stroke-width="0.5">
+                        <circle cx="100" cy="40" r="15" /> <text x="100" y="43" text-anchor="middle" font-size="6" fill="#000">CLASS</text>
+                        <circle cx="160" cy="80" r="15" /> <text x="160" y="83" text-anchor="middle" font-size="6" fill="#000">GENDER</text>
+                        <circle cx="140" cy="150" r="15" /> <text x="140" y="153" text-anchor="middle" font-size="6" fill="#000">IDENTITY</text>
+                        <circle cx="60" cy="150" r="15" /> <text x="60" y="153" text-anchor="middle" font-size="6" fill="#000">LABOR</text>
+                        <circle cx="40" cy="80" r="15" /> <text x="40" y="83" text-anchor="middle" font-size="6" fill="#000">POWER</text>
+                        <line x1="100" y1="70" x2="100" y2="55" />
+                        <line x1="125" y1="85" x2="145" y2="80" />
+                    </g>
+                </svg>
             </div>
-            <div class="hero-visuals">
-                <div class="illustration-container">
-                    <img src="https://via.placeholder.com/200x500/F5F3EE/800000?text=Roman+Dress" alt="Classical Dress" class="visual-img">
-                    <img src="https://via.placeholder.com/150x300/F5F3EE/800000?text=Corset" alt="Anatomy of Dress" class="visual-img">
-                    <img src="https://via.placeholder.com/200x450/F5F3EE/800000?text=Victorian+Dress" alt="Bustle Silhouette" class="visual-img">
-                    <img src="https://via.placeholder.com/120x350/F5F3EE/800000?text=Top+Hat+Gent" alt="Modern Attire" class="visual-img">
-                </div>
-                
-                <div class="society-diagram">
-                    <svg viewBox="0 0 200 200" width="200">
-                        <circle cx="100" cy="100" r="30" fill="none" stroke="#333" />
-                        <text x="100" y="105" text-anchor="middle" font-size="12">Dress</text>
-                        <line x1="100" y1="70" x2="100" y2="40" stroke="#333" />
-                        <text x="100" y="35" text-anchor="middle" font-size="10">Class</text>
-                        <line x1="70" y1="100" x2="40" y2="100" stroke="#333" />
-                        <text x="35" y="105" text-anchor="middle" font-size="10">Power</text>
-                    </svg>
-                </div>
+
+            <div class="hero-illustrations">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA3L3BkMTk2LTYtMTE3XzEuanBn.jpg" class="illu-img illu-1" alt="Roman">
+                <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA3L3BkMTk2LTYtMDIyLTAxLmpwZw.jpg" class="illu-img illu-3" alt="Victorian">
+            </div>
+
+            <div class="hero-text">
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--burgundy); font-weight: 600;">Fashion as a Discipline</p>
+                <h2 class="hero-title">Dress is Knowledge.</h2>
+                <p style="margin-bottom: 30px; font-size: 18px; color: #555;">An intellectual history of fashion as a social practice, material culture, and system of meaning.</p>
+                <button class="btn-explore">Explore the Archive</button>
             </div>
         </section>
 
         <section class="featured-section">
-            <div class="section-top">
-                <h2>Featured Articles</h2>
-                <a href="#" class="view-all">View All Articles ></a>
-            </div>
+            <h2 style="font-family: 'Playfair Display'; color: var(--burgundy); margin-bottom: 40px; text-transform: uppercase;">Featured Articles</h2>
             <div class="article-grid">
-                <article class="article-card">
-                    <span class="card-category">Sociology</span>
+                <div class="article-card">
+                    <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA3L3BkMTk2LTYtMTE3XzEuanBn.jpg" class="card-illu">
+                    <p style="color: var(--burgundy); font-weight: 600; font-size: 12px;">SOCIOLOGY</p>
                     <h3 class="card-title">The Sociology of the Silhouette</h3>
-                    <p class="card-excerpt">How shape, form, and volume reflect systems of power, gender, and identity.</p>
-                    <a href="#" class="read-more">Read Article →</a>
-                </article>
-                <article class="article-card">
-                    <span class="card-category">History</span>
-                    <h3 class="card-title">From Rome to Renaissance: A Fabric History</h3>
-                    <p class="card-excerpt">Textiles, trade, and technology across two thousand years of dress.</p>
-                    <a href="#" class="read-more">Read Article →</a>
-                </article>
-                <article class="article-card">
-                    <span class="card-category">Theory</span>
-                    <h3 class="card-title">Dress as Language</h3>
-                    <p class="card-excerpt">Semiotics, symbols, and the codes embedded in what we wear.</p>
-                    <a href="#" class="read-more">Read Article →</a>
-                </article>
-            </div>
-        </section>
-
-        <section class="archive-footer-layout">
-            <div class="browse-sidebar">
-                <h3>Browse the Archive</h3>
-                <ul class="archive-menu">
-                    <li>Timeline of Fashion History <span>></span></li>
-                    <li>Garment Typologies <span>></span></li>
-                    <li>Textile & Material Culture <span>></span></li>
-                    <li>Theoretical Frameworks <span>></span></li>
-                    <li>Regional Studies <span>></span></li>
-                    <li>Primary Sources <span>></span></li>
-                </ul>
-            </div>
-            <div class="quote-block">
-                <div class="quote-icon">“</div>
-                <p class="quote-text">Fashion is not frivolous. It is a mirror of the world and a record of its values.</p>
-                <p class="quote-author">— Joan De Jean, 1967</p>
-            </div>
-            <div class="about-project">
-                <h4 class="about-title">Research. Context. Culture.</h4>
-                <p class="about-text">Vestige Archive is an evolving resource for students, scholars, and thinkers exploring fashion beyond the surface—through history, theory, and material reality.</p>
-                <button class="btn-learn">Learn More About the Project</button>
-            </div>
+                    <p>How shape, form, and volume reflect systems of power.</p>
+                    <a href="#" style="margin-top: 20px; color: black; font-weight: 700; text-decoration: none;">READ ARTICLE →</a>
+                </div>
+                </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-main">
-            <div class="footer-va">VA</div>
-            <div class="footer-col">
-                <h4>Archive</h4>
-                <ul>
-                    <li><a href="#">Browse All</a></li>
-                    <li><a href="#">Collections</a></li>
-                    <li><a href="#">Contributors</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Glossary</a></li>
-                    <li><a href="#">Reading Lists</a></li>
-                    <li><a href="#">Teaching Resources</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>About</h4>
-                <ul>
-                    <li><a href="#">Mission</a></li>
-                    <li><a href="#">Editorial Board</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col newsletter-col">
-                <h4>Stay Informed</h4>
-                <p style="font-size: 12px; margin-bottom: 15px; opacity: 0.6;">Subscribe to our newsletter</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Your email address">
-                    <button class="btn-subscribe">Subscribe</button>
-                </div>
-            </div>
-        </div>
-        <p class="copyright">© 2024 Vestige Archive. All rights reserved.</p>
-    </footer>
-
-</body>
+    </body>
 </html>
