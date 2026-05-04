@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestis Archive - A Scholarly Archive of Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #800000;
+            --cream: #f9f6f0;
+            --text-black: #1a1a1a;
+            --border-color: #d1ccc0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--cream );
+            color: var(--text-black);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+        }
+
+        /* Top Header Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Main Header */
+        header {
+            text-align: center;
+            padding: 40px 0 20px 0;
+            position: relative;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            margin-bottom: 10px;
+        }
+
+        .search-btn, .library-btn {
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .search-btn svg, .library-btn svg {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 8vw, 110px);
+            color: var(--burgundy);
+            letter-spacing: 12px;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .sub-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .ornament {
+            margin: 15px auto;
+            width: 40px;
+            height: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" fill="none" stroke="%23800000" stroke-width="1"><path d="M10,25 Q50,0 90,25 Q50,50 10,25 Z M50,5 L50,45"/></svg>' );
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Navigation */
+        nav {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin: 0 40px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 5px 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-black);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 60px 80px;
+            position: relative;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-text {
+            padding-right: 40px;
+        }
+
+        .hero-tag {
+            color: var(--burgundy);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .hero-tag::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 30px;
+            height: 2px;
+            background-color: var(--burgundy);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 64px);
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 40px;
+            max-width: 300px;
+        }
+
+        .btn-explore {
+            background-color: var(--burgundy);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .hero-center-img {
+            text-align: center;
+        }
+
+        .hero-center-img img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+        }
+
+        .hero-right-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Diagram */
+        .diagram {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 40px;
+        }
+
+        .diagram-circle {
+            position: absolute;
+            border: 1px solid #aaa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            background: rgba(255,255,255,0.7);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .circle-main { width: 100px; height: 100px; top: 100px; left: 100px; border: 2px solid #666; font-weight: bold; }
+        .circle-1 { width: 70px; height: 70px; top: 20px; left: 115px; }
+        .circle-2 { width: 70px; height: 70px; top: 80px; left: 20px; }
+        .circle-3 { width: 70px; height: 70px; top: 80px; left: 210px; }
+        .circle-4 { width: 70px; height: 70px; top: 180px; left: 50px; }
+        .circle-5 { width: 70px; height: 70px; top: 180px; left: 180px; }
+
+        /* Featured Articles */
+        .featured-section {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--burgundy);
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--burgundy);
+        }
+
+        .view-all {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-black);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .article-card {
+            display: flex;
+            background: white;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            align-items: center;
+        }
+
+        .article-img {
+            width: 40%;
+            margin-right: 20px;
+        }
+
+        .article-img img {
+            width: 100%;
+            height: auto;
+        }
+
+        .article-content {
+            width: 60%;
+        }
+
+        .article-tag {
+            color: var(--burgundy);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'Montserrat', sans-serif;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .article-excerpt {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            text-decoration: none;
+            color: var(--text-black);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Middle Banner */
+        .middle-banner {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background-color: var(--burgundy);
+            color: white;
+        }
+
+        .banner-col {
+            padding: 60px 40px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .banner-col:last-child { border-right: none; }
+
+        .banner-col.dark {
+            background-color: #000;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .banner-list {
+            list-style: none;
+        }
+
+        .banner-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quote-mark {
+            font-size: 60px;
+            color: var(--burgundy);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            font-style: italic;
+            margin: 20px 0;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .quote-author {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .btn-outline {
+            border: 1px solid white;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 60px 80px 30px 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            border-right: 1px solid #333;
+            padding-right: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: #888;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            background: transparent;
+            border: 1px solid #333;
+            padding: 12px;
+            color: white;
+            flex-grow: 1;
+        }
+
+        .newsletter-form button {
+            background: var(--burgundy);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid #222;
+            padding-top: 30px;
+        }
+
+        .sketch-img {
+            filter: sepia(0.2) contrast(1.1);
+            mix-blend-mode: multiply;
+        }
+
+        @media (max-width: 1024px) {
+            .hero, .article-grid, .middle-banner, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text, .hero-center-img, .hero-right-diagram {
+                padding: 20px 0;
+                text-align: center;
+            }
+            .hero-desc { margin: 0 auto 40px auto; }
+            .footer-logo { border-right: none; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span>Fashion as a Discipline.</span>
+        <span>Research. Context. Culture.</span>
+    </div>
+
+    <header>
+        <div class="header-top">
+            <div class="search-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Search
+            </div>
+            <div class="library-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Library
+            </div>
+        </div>
+        <h1 class="main-title">VESTIS ARCHIVE</h1>
+        <p class="sub-title">A Scholarly Archive of Fashion, Dress, and Cultural Study</p>
+        <div class="ornament"></div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Archive ▾</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Timeline</a></li>
+            <li><a href="#">Themes ▾</a></li>
+            <li><a href="#">Contributors</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <span class="hero-tag">Fashion as a Discipline</span>
+            <h2 class="hero-title">Dress is Knowledge.</h2>
+            <p class="hero-desc">An intellectual history of fashion as a social practice, material culture, and system of meaning.</p>
+            <a href="#" class="btn-explore">Explore the Archive</a>
+        </div>
+        <div class="hero-center-img">
+            <img src="https://www.nga.gov/content/dam/ngaweb/research/publications/pdf/jacques-louis-david/david-statue-muse.jpg" alt="Roman Statue Sketch" class="sketch-img">
+        </div>
+        <div class="hero-right-diagram">
+            <div class="diagram">
+                <div class="diagram-circle circle-main">Dress</div>
+                <div class="diagram-circle circle-1">Society</div>
+                <div class="diagram-circle circle-2">Power</div>
+                <div class="diagram-circle circle-3">Gender</div>
+                <div class="diagram-circle circle-4">Labor</div>
+                <div class="diagram-circle circle-5">Identity</div>
+                <svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;">
+                    <line x1="150" y1="150" x2="150" y2="55" stroke="#ccc" />
+                    <line x1="150" y1="150" x2="55" y2="115" stroke="#ccc" />
+                    <line x1="150" y1="150" x2="245" y2="115" stroke="#ccc" />
+                    <line x1="150" y1="150" x2="85" y2="215" stroke="#ccc" />
+                    <line x1="150" y1="150" x2="215" y2="215" stroke="#ccc" />
+                </svg>
+            </div>
+            <img src="https://picryl.com/download/royal-worcester-corsets1900-drawing-579301.jpg" alt="Corset Sketch" class="sketch-img" style="width: 150px; margin-top: -50px;">
+        </div>
+    </section>
+
+    <section class="featured-section">
+        <div class="section-header">
+            <h3 class="section-title">Featured Articles</h3>
+            <a href="#" class="view-all">View All Articles ></a>
+        </div>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-img">
+                    <img src="https://picryl.com/download/french-fashion-plates-victorian-era-public-domain-image-845132.jpg" alt="Silhouette" class="sketch-img">
+                </div>
+                <div class="article-content">
+                    <span class="article-tag">Sociology</span>
+                    <h4 class="article-title">The Sociology of the Silhouette</h4>
+                    <p class="article-excerpt">How shape, form, and volume reflect systems of power, gender, and identity.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="article-img">
+                    <img src="https://www.nga.gov/content/dam/ngaweb/research/publications/pdf/jacques-louis-david/david-statue-muse.jpg" alt="Fabric History" class="sketch-img">
+                </div>
+                <div class="article-content">
+                    <span class="article-tag">History</span>
+                    <h4 class="article-title">From Rome to Renaissance: A Fabric History</h4>
+                    <p class="article-excerpt">Textiles, trade, and technology across two thousand years of dress.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="article-img">
+                    <img src="https://picryl.com/download/royal-worcester-corsets1900-drawing-579301.jpg" alt="Language" class="sketch-img">
+                </div>
+                <div class="article-content">
+                    <span class="article-tag">Theory</span>
+                    <h4 class="article-title">Dress as Language</h4>
+                    <p class="article-excerpt">Semiotics, symbols, and the codes embedded in what we wear.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="middle-banner">
+        <div class="banner-col">
+            <h4 class="banner-title">Browse the Archive</h4>
+            <ul class="banner-list">
+                <li>Timeline of Fashion History <span>></span></li>
+                <li>Garment Typologies <span>></span></li>
+                <li>Textile & Material Culture <span>></span></li>
+                <li>Theoretical Frameworks <span>></span></li>
+                <li>Regional Studies <span>></span></li>
+                <li>Primary Sources <span>></span></li>
+            </ul>
+        </div>
+        <div class="banner-col dark">
+            <span class="quote-mark">“</span>
+            <p class="quote-text">Fashion is not frivolous. It is a mirror of the world and a record of its values.</p>
+            <p class="quote-author">— Joan de Jean, 1967</p>
+        </div>
+        <div class="banner-col">
+            <h4 class="banner-title">Research. Context. Culture.</h4>
+            <p class="project-desc">Vestis Archive is an evolving resource for students, scholars, and thinkers exploring fashion beyond the surface—through history, theory, and material reality.</p>
+            <a href="#" class="btn-outline">Learn More About the Project</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-logo">VA</div>
+            <div class="footer-col">
+                <h4>Archive</h4>
+                <ul>
+                    <li><a href="#">Browse All</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Contributors</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Glossary</a></li>
+                    <li><a href="#">Reading Lists</a></li>
+                    <li><a href="#">Teaching Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Mission</a></li>
+                    <li><a href="#">Editorial Board</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Informed</h4>
+                <p style="font-size: 14px; margin-bottom: 10px;">Subscribe to our newsletter</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 VESTIS ARCHIVE. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+</body>
+</html>
